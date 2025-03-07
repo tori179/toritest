@@ -68,20 +68,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Ngô bật ngược tăng mạnh trong phiên hôm qua</td>
+                    <tr onclick="window.location='{{ url('/news/1') }}'" style="cursor: pointer;">
+                        <td>Ngô bật ngược tăng mạnh</td>
                         <td>Nông sản</td>
-                        <td>11:22:00</td>
+                        <td>07-03-2025</td>
                     </tr>
-                    <tr>
-                        <td>Giá dầu đi ngang chờ đợi cuộc họp OPEC+</td>
+                    <tr onclick="window.location='{{ url('/news/2') }}'" style="cursor: pointer;">
+                        <td>Giá dầu đi ngang chờ đợi OPEC+</td>
                         <td>Năng lượng</td>
-                        <td>11:22:00</td>
+                        <td>06-03-2025</td>
                     </tr>
-                    <tr>
+                    <tr onclick="window.location='{{ url('/news/3') }}'" style="cursor: pointer;">
                         <td>Giá đường hồi phục nhẹ</td>
                         <td>Nông sản</td>
-                        <td>11:22:00</td>
+                        <td>05-03-2025</td>
                     </tr>
                 </tbody>
             </table>

@@ -45,7 +45,8 @@
     </style>
 </head>
 <body>
-
+   
+    
     <!-- Sidebar -->
     <div class="sidebar">
         <a href="#"><i class="fa fa-home"></i> Trang chủ</a>
@@ -58,6 +59,14 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <span class="navbar-brand">Hệ thống quản lý</span>
+        
+
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white font-weight-bold" href="{{ url('/news-overview') }}">Tin tức</a>
+            </li>
+        </ul>
     </nav>
 
     <!-- Nội dung chính -->

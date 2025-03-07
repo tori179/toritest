@@ -15,3 +15,7 @@ Route::get("/register",[AuthController::class,"register"])
 ->name("register");
 Route::post("/register",[AuthController::class,"registerPost"])
 ->name("register.post");
+Route::get('/news/{id}', [AuthController::class, 'show']);
+Route::get('/news-overview', function () {
+    return view('news-overview');
+});
