@@ -42,6 +42,7 @@
             height: 60px;
             padding-left: 260px;
         }
+        
     </style>
 </head>
 <body>
@@ -60,14 +61,22 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
         <span class="navbar-brand">Hệ thống quản lý</span>
         
-
-
+        @if(Auth::check())
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link text-white font-weight-bold" href="{{ url('/news-overview') }}">Tin tức</a>
             </li>
         </ul>
+        <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+            @csrf
+            <button type="submit">Đăng xuất</button>
+        </form>
+    @endif
+    
+
+       
     </nav>
+   
 
     <!-- Nội dung chính -->
     <div class="main-content">

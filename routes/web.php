@@ -18,4 +18,6 @@ Route::post("/register",[AuthController::class,"registerPost"])
 Route::get('/news/{id}', [AuthController::class, 'show']);
 Route::get('/news-overview', function () {
     return view('news-overview');
-});
+})->middleware('auth');
+Route::post('/logout', [AuthController::class, 'logout'])
+->name('logout')->middleware('auth');

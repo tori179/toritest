@@ -45,18 +45,26 @@ class AuthController extends Controller
     }
     public function show($id)
     {
-        // Dữ liệu mẫu, sau này có thể lấy từ database
         $newsData = [
             1 => ['title' => 'Ngô bật ngược tăng mạnh', 'content' => 'Giá ngô tăng mạnh...', 'date' => '07-03-2025'],
             2 => ['title' => 'Giá dầu đi ngang', 'content' => 'Giá dầu ổn định...', 'date' => '06-03-2025'],
             3 => ['title' => 'Giá đường hồi phục nhẹ', 'content' => 'Giá đường tăng trở lại...', 'date' => '05-03-2025'],
         ];
 
-        // Kiểm tra nếu tin tức tồn tại
         if (!array_key_exists($id, $newsData)) {
-            abort(404); // Nếu không có tin tức, trả về trang lỗi 404
+            abort(404); 
         }
 
         return view('news-detail', ['news' => $newsData[$id]]);
     }
+    public function logout(Request $request)
+    {
+        Auth::logout(); // Đăng xuất người dùng
+    
+        $request->session()->invalidate(); // Xóa session hiện tại
+        $request->session()->regenerateToken(); // Tạo CSRF token mới
+    
+        return redirect('/login')->with('message', 'Bạn đã đăng xuất thành công.');
+    }
+    
 }
