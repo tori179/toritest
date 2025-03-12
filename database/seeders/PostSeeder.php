@@ -13,22 +13,12 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
-        $laravelCategory = Category::where('name', 'Laravel')->first();
-        $phpCategory = Category::where('name', 'PHP')->first();
-
-        if (!$laravelCategory || !$phpCategory) {
-            dd("Category không tồn tại. Hãy chạy `php artisan db:seed --class=CategorySeeder` trước.");
-        }
-        Post::create([
-            'title' => 'Introduction to Laravel',
-            'content' => 'Laravel is a PHP framework...',
-            'category_id' => $laravelCategory->id
-        ]);
+        $category = Category::firstOrCreate(['name' => 'Công nghệ']);
 
         Post::create([
-            'title' => 'PHP Best Practices',
-            'content' => 'Writing clean and efficient PHP code...',
-            'category_id' => $phpCategory->id
+            'title' => 'Bài viết đầu tiên',
+            'content' => 'Đây là nội dung bài viết đầu tiên.',
+            'category_id' => $category->id
         ]);
     }
 }
